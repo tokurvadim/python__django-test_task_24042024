@@ -7,11 +7,7 @@ from .models import Food, FoodCategory
 
 class IsPublishFoodSerializer(serializers.ListSerializer):
     def to_representation(self, data):
-        data = data.filter(is_publish=True)
-        if data:
-            return super().to_representation(data)
-        else:
-            return super().to_representation([])
+        return super().to_representation(data.filter(is_publish=True))
 
 
 
